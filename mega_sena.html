@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIANDO JAVASCRIPT</title>
+</head>
+<body>
+    <h1>GERANDO NÚMEROS ALEATÓRIOS UTILIZANDO JAVASCRIPT</h1>
+
+
+    <button onclick="imprimirNumeros()">Gerar os números da MEGA SENA.</button>
+    <p id="resultado"></p>
+
+    <script>
+        function gerarNumerosAleatorios() {
+            const numeros = new Set();
+
+            while (numeros.size < 6) {
+                const numero = Math.floor(Math.random() * 60) + 1;
+                numeros.add(numero);
+            }
+
+            return Array.from(numeros);
+        }
+
+        function imprimirNumeros() {
+            const numeros = gerarNumerosAleatorios();
+            document.getElementById('resultado').textContent = "Os números abençoados para a sua mudança de vida, são: " + numeros.join(", ") + "!";
+        }
+    </script>
+</body>
+</html>
